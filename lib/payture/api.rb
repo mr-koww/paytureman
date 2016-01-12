@@ -10,7 +10,7 @@ module Paytureman
 
     def init(order_id, amount, ip, description = {})
 
-      data = { SessionType: :Block, OrderId: order_id, Amount: amount, IP: ip }
+      data = { SessionType: :Pay, OrderId: order_id, Amount: amount, IP: ip }
       data.merge!(description)
       init_params = {
           'Data' => URI.escape(data.map { |k, v| "#{k.to_s.camelize}=#{v}" }.join(';'))
